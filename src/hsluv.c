@@ -295,8 +295,8 @@ static void
 lch2luv(Triplet* in_out)
 {
     double hrad = in_out->c * (2.0 * pi / 360.0);
-    double u = cosf(hrad) * in_out->b;
-    double v = sinf(hrad) * in_out->b;
+    double u = cos(hrad) * in_out->b;
+    double v = sin(hrad) * in_out->b;
 
     in_out->b = u;
     in_out->c = v;
