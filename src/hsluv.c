@@ -1,5 +1,6 @@
 /*
  * hsluv-c: Human-friendly HSL
+ * <http://github.com/mity/hsluv-c>
  * <http://www.hsluv.org/>
  *
  * Copyright (c) 2015 Alexei Boronine (original idea, JavaScript implementation)
