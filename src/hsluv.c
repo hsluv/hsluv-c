@@ -426,8 +426,6 @@ hpluv2rgb(double h, double s, double l, double* pr, double* pg, double* pb)
     *pb = tmp.c;
 }
 
-#include <stdio.h>
-
 void
 rgb2hsluv(double r, double g, double b, double* ph, double* ps, double* pl)
 {
