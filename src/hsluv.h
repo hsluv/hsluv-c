@@ -1,6 +1,10 @@
 /*
- * hsluv-c
- * Copyright (c) 2017 Martin Mitas
+ * hsluv-c: Human-friendly HSL
+ * <http://www.hsluv.org/>
+ *
+ * Copyright (c) 2015 Alexei Boronine (original idea, JavaScript implementation)
+ * Copyright (c) 2015 Roger Tallada (Obj-C implementation)
+ * Copyright (c) 2017 Martin Mitas (C implementation, based on Obj-C implementation)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
