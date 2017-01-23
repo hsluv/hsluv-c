@@ -113,7 +113,7 @@ ray_length_until_intersect(double theta, const Bounds* line)
 static double
 max_safe_chroma_for_l(double l)
 {
-    double min_len = FLT_MAX;
+    double min_len = DBL_MAX;
     Bounds bounds[6];
     int i;
 
@@ -139,7 +139,7 @@ max_safe_chroma_for_l(double l)
 static double
 max_chroma_for_lh(double l, double h)
 {
-    double min_len = FLT_MAX;
+    double min_len = DBL_MAX;
     double hrad = h / 360.0 * pi * 2.0;
     Bounds bounds[6];
     int i;
