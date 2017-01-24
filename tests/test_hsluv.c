@@ -4,7 +4,7 @@
 #include "snapshot.h"
 
 
-#define MAX_DIFF            0.0001f
+#define MAX_DIFF            0.00000001
 
 #define ABS(x)              ((x) >= 0 ? (x) : -(x))
 
