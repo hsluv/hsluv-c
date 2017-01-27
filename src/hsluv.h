@@ -1,5 +1,5 @@
 /*
- * hsluv-c: Human-friendly HSL
+ * HSLuv-C: Human-friendly HSL
  * <http://github.com/hsluv/hsluv-c>
  * <http://www.hsluv.org/>
  *

@@ -1,5 +1,5 @@
 /*
- * hsluv-c: Human-friendly HSL
+ * HSLuv-C: Human-friendly HSL
  * <http://github.com/hsluv/hsluv-c>
  * <http://www.hsluv.org/>
  *
@@ -210,16 +210,18 @@ y2l(double y)
     if(y <= epsilon)
         return y * kappa;
     else
-        return 116.0 * powl(y, 1.0/3.0) - 16.0;
+        return 116.0 * cbrt(y) - 16.0;
 }
 
 static double
 l2y(double l)
 {
-    if(l <= 8.0)
+    if(l <= 8.0) {
         return l / kappa;
-    else
-        return powl((l + 16.0) / 116.0, 3.0);
+    } else {
+        double x = (l + 16.0) / 116.0;
+        return (x * x * x);
+    }
 }
 
 static void
