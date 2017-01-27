@@ -18,7 +18,7 @@ Refer to `src/hsluv.h` for API description.
 If you encounter any bug, please be so kind and report it. Unheard bugs cannot
 get fixed. You can submit bug reports here:
 
-* http://github.com/mity/hsluv-c/issues
+* http://github.com/hsluv/hsluv-c/issues
 
 
 ## License
