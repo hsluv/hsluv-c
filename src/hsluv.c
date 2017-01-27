@@ -256,7 +256,7 @@ luv2xyz(Triplet* in_out)
     double var_v = in_out->c / (13.0 * in_out->a) + ref_v;
     double y = l2y(in_out->a);
     double x = -(9.0 * y * var_u) / ((var_u - 4.0) * var_v - var_u * var_v);
-    double z = (9.0 * y - (15.0 * var_v * y) - (var_v * x)) / (3 * var_v);
+    double z = (9.0 * y - (15.0 * var_v * y) - (var_v * x)) / (3.0 * var_v);
     in_out->a = x;
     in_out->b = y;
     in_out->c = z;
@@ -271,7 +271,7 @@ luv2lch(Triplet* in_out)
     double h;
     double c = sqrt(u * u + v * v);
 
-    // Grays: disambiguate hue
+    /* Grays: disambiguate hue */
     if(c < 0.00000001) {
         h = 0;
     } else {
