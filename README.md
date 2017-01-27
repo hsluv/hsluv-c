@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/hsluv/hsluv-c.svg?branch=master)](https://travis-ci.org/hsluv/hsluv-c)
 
 # HSLuv-C: Human-friendly HSL
 
