@@ -84,5 +84,5 @@ TEST_LIST = {
     { "rgb2hsluv", test_rgb2hsluv },
     { "hpluv2rgb", test_hpluv2rgb },
     { "rgb2hpluv", test_rgb2hpluv },
-    { 0 }
+    { NULL, NULL }
 };
