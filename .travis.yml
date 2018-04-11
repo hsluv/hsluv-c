@@ -24,3 +24,6 @@ before_script:
 
 script:
     - make VERBOSE=1
+
+after_success:
+    - ./tests/test_hsluv
