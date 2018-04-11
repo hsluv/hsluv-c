@@ -1,5 +1,26 @@
+# YAML definition for travis-ci.com continuous integration.
+# (See https://docs.travis-ci.com/user/languages/c)
+
+
+# Use Container-based machine
+# (See https://docs.travis-ci.com/user/reference/overview/)
+sudo:
+    - false
+
 language: c
+
+compiler:
+    - gcc
+    - clang
+
+env:
+    - CONFIG=Debug
+    - CONFIG=Release
+
+before_script:
+    - mkdir build
+    - cd build
+    - cmake -DCMAKE_BUILD_TYPE=$CONFIG -G 'Unix Makefiles' ..
+
 script:
- - cmake .
- - make
- - ./tests/test_hsluv
+    - make VERBOSE=1
