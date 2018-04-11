@@ -40,9 +40,10 @@ struct TestVector_tag {
     double hpluv_l;
 };
 
-static const TestVector snapshot[] = {""")
+static const TestVector snapshot[] = {
+""")
 
-for hex_str in data:
+for hex_str in sorted(data):
     record = data[hex_str]
 
     sys.stdout.write('    {\n')
@@ -64,5 +65,5 @@ for hex_str in data:
 
 sys.stdout.write("""};
 
-static const size_t snapshot_n = sizeof(snapshot) / sizeof(TestVector);
+static const int snapshot_n = (int)(sizeof(snapshot) / sizeof(TestVector));
 """)
