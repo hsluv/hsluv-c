@@ -1,0 +1,3 @@
+# See https://github.com/github/linguist#overrides
+snapshot.h linguist-language=C
+snapshot.h linguist-generated=true
