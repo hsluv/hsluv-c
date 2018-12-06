@@ -1,12 +1,6 @@
 # YAML definition for travis-ci.com continuous integration.
 # (See https://docs.travis-ci.com/user/languages/c)
 
-
-# Use Container-based machine
-# (See https://docs.travis-ci.com/user/reference/overview/)
-sudo:
-    - false
-
 language: c
 
 compiler:
