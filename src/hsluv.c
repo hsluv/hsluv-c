@@ -137,7 +137,7 @@ static double
 max_chroma_for_lh(double l, double h)
 {
     double min_len = DBL_MAX;
-    double hrad = h * 0.01745329251994329577; /* (2 * pi / 260) */
+    double hrad = h * 0.01745329251994329577; /* (2 * pi / 360) */
     Bounds bounds[6];
     int i;
 
