@@ -143,10 +143,10 @@ max_chroma_for_lh(double l, double h)
 
     get_bounds(l, bounds);
     for(i = 0; i < 6; i++) {
-        double l = ray_length_until_intersect(hrad, &bounds[i]);
+        double len = ray_length_until_intersect(hrad, &bounds[i]);
 
-        if(l >= 0  &&  l < min_len)
-            min_len = l;
+        if(len >= 0  &&  len < min_len)
+            min_len = len;
     }
     return min_len;
 }
