@@ -28,4 +28,9 @@ elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
     set(CMAKE_C_FLAGS_MINSIZEREL "${CMAKE_C_FLAGS_RELEASE} /MT")
 endif()
 
-add_subdirectory(tests)
+OPTION(HSLUV_C_TESTS "Enable/disable building of hsluv-c tests" ON)
+
+add_subdirectory(src)
+if(HSLUV_C_TESTS)
+    add_subdirectory(tests)
+endif()
