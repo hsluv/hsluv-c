@@ -4,14 +4,19 @@
 #include "snapshot.h"
 
 
-#define MAX_DIFF            0.00000001
+#define EPSILON             0.00000001
 
 #define ABS(x)              ((x) >= 0 ? (x) : -(x))
 
-#define CHECK_EQ(a, b)                                                  \
-        TEST_CHECK_(ABS((a) - (b)) < MAX_DIFF,                          \
-                    "%s: Mismatch in channel '" #a "' (%f versus %f).", \
-                     snapshot[i].hex_str, (double)a, (double)b)
+#define TEST_CHANNEL(name, produced, expected)                              \
+    do {                                                                    \
+        if(!TEST_CHECK_(ABS((produced) - (expected)) < EPSILON,             \
+                        "%s channel", name))                                \
+        {                                                                   \
+            TEST_MSG("Produced: %f", produced);                             \
+            TEST_MSG("Expected: %f", expected);                             \
+        }                                                                   \
+    } while(0)
 
 
 static void
@@ -22,11 +27,13 @@ test_hsluv2rgb(void)
     for(i = 0; i < snapshot_n; i++) {
         double r, g, b;
 
+        TEST_CASE(snapshot[i].hex_str);
+
         hsluv2rgb(snapshot[i].hsluv_h, snapshot[i].hsluv_s, snapshot[i].hsluv_l, &r, &g, &b);
 
-        CHECK_EQ(r, snapshot[i].rgb_r);
-        CHECK_EQ(g, snapshot[i].rgb_g);
-        CHECK_EQ(b, snapshot[i].rgb_b);
+        TEST_CHANNEL("red", r, snapshot[i].rgb_r);
+        TEST_CHANNEL("green", g, snapshot[i].rgb_g);
+        TEST_CHANNEL("blue", b, snapshot[i].rgb_b);
     }
 }
 
@@ -38,11 +45,13 @@ test_rgb2hsluv(void)
     for(i = 0; i < snapshot_n; i++) {
         double h, s, l;
 
+        TEST_CASE(snapshot[i].hex_str);
+
         rgb2hsluv(snapshot[i].rgb_r, snapshot[i].rgb_g, snapshot[i].rgb_b, &h, &s, &l);
 
-        CHECK_EQ(h, snapshot[i].hsluv_h);
-        CHECK_EQ(s, snapshot[i].hsluv_s);
-        CHECK_EQ(l, snapshot[i].hsluv_l);
+        TEST_CHANNEL("hue", h, snapshot[i].hsluv_h);
+        TEST_CHANNEL("saturation", s, snapshot[i].hsluv_s);
+        TEST_CHANNEL("lightness", l, snapshot[i].hsluv_l);
     }
 }
 
@@ -54,11 +63,13 @@ test_hpluv2rgb(void)
     for(i = 0; i < snapshot_n; i++) {
         double r, g, b;
 
+        TEST_CASE(snapshot[i].hex_str);
+
         hpluv2rgb(snapshot[i].hpluv_h, snapshot[i].hpluv_s, snapshot[i].hpluv_l, &r, &g, &b);
 
-        CHECK_EQ(r, snapshot[i].rgb_r);
-        CHECK_EQ(g, snapshot[i].rgb_g);
-        CHECK_EQ(b, snapshot[i].rgb_b);
+        TEST_CHANNEL("red", r, snapshot[i].rgb_r);
+        TEST_CHANNEL("green", g, snapshot[i].rgb_g);
+        TEST_CHANNEL("blue", b, snapshot[i].rgb_b);
     }
 }
 
@@ -70,11 +81,13 @@ test_rgb2hpluv(void)
     for(i = 0; i < snapshot_n; i++) {
         double h, s, l;
 
+        TEST_CASE(snapshot[i].hex_str);
+
         rgb2hpluv(snapshot[i].rgb_r, snapshot[i].rgb_g, snapshot[i].rgb_b, &h, &s, &l);
 
-        CHECK_EQ(h, snapshot[i].hpluv_h);
-        CHECK_EQ(s, snapshot[i].hpluv_s);
-        CHECK_EQ(l, snapshot[i].hpluv_l);
+        TEST_CHANNEL("hue", h, snapshot[i].hpluv_h);
+        TEST_CHANNEL("saturation", s, snapshot[i].hpluv_s);
+        TEST_CHANNEL("lightness", l, snapshot[i].hpluv_l);
     }
 }
 
