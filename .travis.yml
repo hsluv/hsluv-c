@@ -1,6 +1,7 @@
 # YAML definition for travis-ci.com continuous integration.
 # (See https://docs.travis-ci.com/user/languages/c)
 
+dist: bionic
 language: c
 
 compiler:
