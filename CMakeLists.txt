@@ -32,5 +32,6 @@ OPTION(HSLUV_C_TESTS "Enable/disable building of hsluv-c tests" ON)
 
 add_subdirectory(src)
 if(HSLUV_C_TESTS)
+    enable_testing()
     add_subdirectory(tests)
 endif()

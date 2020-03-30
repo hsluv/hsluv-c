@@ -21,4 +21,4 @@ script:
     - make VERBOSE=1
 
 after_success:
-    - ./tests/test_hsluv
+    - make VERBOSE=1 ARGS=--verbose test

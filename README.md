@@ -7,11 +7,22 @@
 This is C implementation of [HSLuv](http://www.hsluv.org/) (revision 4).
 
 
-## Using HSLuv-C
+## Using HSLuv-C with your own project
 
 Just copy `src/hsluv.h` and `src/hsluv.c` into your project.
 
 Refer to `src/hsluv.h` for API description.
+
+
+## Building from a Git clone
+
+```console
+# mkdir build
+# cd build
+# cmake ..
+# make
+# make test
+```
 
 
 ## Reporting Bugs
