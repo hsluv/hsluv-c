@@ -1,6 +1,6 @@
 /*
  * Acutest -- Another C/C++ Unit Test facility
- * <http://github.com/mity/acutest>
+ * <https://github.com/mity/acutest>
  *
  * Copyright 2013-2020 Martin Mitas
  * Copyright 2019 Garrett D'Amore
@@ -91,7 +91,7 @@
  * main Acutest process.
  *
  * As a side effect of such abortion, your unit tests may cause memory leaks,
- * unflushed file descriptors, and other fenomena caused by the abortion.
+ * unflushed file descriptors, and other phenomena caused by the abortion.
  *
  * Therefore you should not use these as a general replacement for TEST_CHECK.
  * Use it with some caution, especially if your test causes some other side
@@ -825,7 +825,7 @@ test_set_duration_(int i, double duration)
 static int
 test_name_contains_word_(const char* name, const char* pattern)
 {
-    static const char word_delim[] = " \t-_.";
+    static const char word_delim[] = " \t-_/.,:;";
     const char* substr;
     size_t pattern_len;
     int starts_on_word_boundary;
@@ -1581,6 +1581,9 @@ main(int argc, char** argv)
 
 #if defined(ACUTEST_WIN_)
     SetUnhandledExceptionFilter(test_seh_exception_filter_);
+#ifdef _MSC_VER
+    _set_abort_behavior(0, _WRITE_ABORT_MSG);
+#endif
 #endif
 
     /* By default, we want to run all tests. */
