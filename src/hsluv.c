@@ -1,7 +1,7 @@
 /*
  * HSLuv-C: Human-friendly HSL
- * <http://github.com/hsluv/hsluv-c>
- * <http://www.hsluv.org/>
+ * <https://github.com/hsluv/hsluv-c>
+ * <https://www.hsluv.org/>
  *
  * Copyright (c) 2015 Alexei Boronine (original idea, JavaScript implementation)
  * Copyright (c) 2015 Roger Tallada (Obj-C implementation)
@@ -199,7 +199,7 @@ rgb2xyz(Triplet* in_out)
     in_out->c = z;
 }
 
-/* http://en.wikipedia.org/wiki/CIELUV
+/* https://en.wikipedia.org/wiki/CIELUV
  * In these formulas, Yn refers to the reference white point. We are using
  * illuminant D65, so Yn (see refY in Maxima file) equals 1. The formula is
  * simplified accordingly.
