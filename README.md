@@ -17,11 +17,11 @@ Refer to `src/hsluv.h` for API description.
 ## Building from a Git clone
 
 ```console
-# mkdir build
-# cd build
-# cmake ..
-# make
-# make test
+$ mkdir build
+$ cd build
+$ cmake ..
+$ make
+$ make test
 ```
 
 
