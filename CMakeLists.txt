@@ -14,9 +14,9 @@ endif()
 
 
 if ("${CMAKE_C_COMPILER_ID}" STREQUAL "Clang")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -std=c99 -pedantic")
 elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "GNU")
-    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -Wall -Wextra -std=c99 -pedantic")
 elseif ("${CMAKE_C_COMPILER_ID}" STREQUAL "MSVC")
     # Disable warnings about the so-called unsecured functions:
     add_definitions(/D_CRT_SECURE_NO_WARNINGS)
