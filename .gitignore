@@ -1,5 +1,7 @@
 Makefile
 CMakeCache.txt
 *.cmake
+*.a
 CMakeFiles
+/Testing
 /tests/test_hsluv

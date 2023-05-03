@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/hsluv/hsluv-c.svg?branch=master)](https://travis-ci.org/hsluv/hsluv-c)
+[![Build Status](https://github.com/hsluv/hsluv-c/actions/workflows/test.yml/badge.svg)](https://github.com/hsluv/hsluv-c/actions/workflows/test.yml)
 
 # HSLuv-C: Human-friendly HSL
 

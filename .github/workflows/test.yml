@@ -1,0 +1,17 @@
+name: Compile and test
+
+on:
+  - pull_request
+  - push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Configure
+        run: cmake -DCMAKE_BUILD_TYPE=Release -G 'Unix Makefiles' .
+      - name: Build
+        run: make VERBOSE=1
+      - name: Test
+        run: make VERBOSE=1 ARGS=--verbose test
