@@ -73,17 +73,37 @@ void hpluv2rgb(double h, double s, double l, double* pr, double* pg, double* pb)
 /**
  * Convert RGB to HPLuv.
  *
+ * Note that HPLuv color space does not cover all the colors of RGB color
+ * space. More specifically, some valid RGB triplets may correspond to colors
+ * whose saturation is not representable in the HPLuv color space and falls
+ * outside the valid range between 0.0 and 100.0.
+ *
+ * Application can still get closest color correctly representable in the HPLuv
+ * color space by clamping the saturation into the valid range:
+ *
+ * @code C
+ * ...
+ * if(rgb2hpluv(r, g, b, &h, &s, &v) != 0) {
+ *     if(s < 0.0)
+ *         s = 0.0;
+ *     if(s > 100.0)
+ *         s = 100.0;
+ * }
+ * ...
+ * @endcode
+ *
  * @param r Red component. Between 0.0 and 1.0.
  * @param g Green component. Between 0.0 and 1.0.
  * @param b Blue component. Between 0.0 and 1.0.
  * @param[out] ph Hue. Between 0.0 and 360.0.
- * @param[out] ps Saturation. Between 0.0 and 100.0.
+ * @param[out] ps Saturation. Between 0.0 and 100.0 if the input is
+ * representable in HPLuv color space; and outside the range if it's not.
  * @param[out] pl Lightness. Between 0.0 and 100.0.
  *
- * Note that HPLuv does not contain all the colors of RGB, so converting
- * arbitrary RGB to it may generate invalid HPLuv colors.
+ * @return Returns 0 if the RGB triplet is representable in the HPLuv color
+ * space, -1 otherwise.
  */
-void rgb2hpluv(double r, double g, double b, double* ph, double* ps, double* pl);
+int rgb2hpluv(double r, double g, double b, double* ph, double* ps, double* pl);
 
 
 #ifdef __cplusplus

@@ -32,6 +32,10 @@
 #include <math.h>
 
 
+#define CLAMP(val, min_val, max_val)        \
+    ((val) < (min_val) ? (min_val) : ((val) > (max_val) ? (max_val) : (val)))
+
+
 typedef struct Triplet_tag Triplet;
 struct Triplet_tag {
     double a;
@@ -402,9 +406,9 @@ hsluv2rgb(double h, double s, double l, double* pr, double* pg, double* pb)
     luv2xyz(&tmp);
     xyz2rgb(&tmp);
 
-    *pr = tmp.a;
-    *pg = tmp.b;
-    *pb = tmp.c;
+    *pr = CLAMP(tmp.a, 0.0, 1.0);
+    *pg = CLAMP(tmp.b, 0.0, 1.0);
+    *pb = CLAMP(tmp.c, 0.0, 1.0);
 }
 
 void
@@ -417,9 +421,9 @@ hpluv2rgb(double h, double s, double l, double* pr, double* pg, double* pb)
     luv2xyz(&tmp);
     xyz2rgb(&tmp);
 
-    *pr = tmp.a;
-    *pg = tmp.b;
-    *pb = tmp.c;
+    *pr = CLAMP(tmp.a, 0.0, 1.0);
+    *pg = CLAMP(tmp.b, 0.0, 1.0);
+    *pb = CLAMP(tmp.c, 0.0, 1.0);
 }
 
 void
@@ -432,12 +436,12 @@ rgb2hsluv(double r, double g, double b, double* ph, double* ps, double* pl)
     luv2lch(&tmp);
     lch2hsluv(&tmp);
 
-    *ph = tmp.a;
-    *ps = tmp.b;
-    *pl = tmp.c;
+    *ph = CLAMP(tmp.a, 0.0, 360.0);
+    *ps = CLAMP(tmp.b, 0.0, 100.0);
+    *pl = CLAMP(tmp.c, 0.0, 100.0);
 }
 
-void
+int
 rgb2hpluv(double r, double g, double b, double* ph, double* ps, double* pl)
 {
     Triplet tmp = { r, g, b };
@@ -447,7 +451,11 @@ rgb2hpluv(double r, double g, double b, double* ph, double* ps, double* pl)
     luv2lch(&tmp);
     lch2hpluv(&tmp);
 
-    *ph = tmp.a;
+    *ph = CLAMP(tmp.a, 0.0, 360.0);
+    /* Do NOT clamp the saturation. Application may want to have an idea
+     * how much off the valid range the given RGB color is. */
     *ps = tmp.b;
-    *pl = tmp.c;
+    *pl = CLAMP(tmp.c, 0.0, 100.0);
+
+    return (0.0 <= tmp.b  &&  tmp.b <= 100.0) ? 0 : -1;
 }
