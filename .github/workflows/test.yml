@@ -1,14 +1,14 @@
-name: Compile and test
+name: Build and Test
 
 on:
   - pull_request
   - push
 
 jobs:
-  build:
+  linux:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Configure
         run: cmake -DCMAKE_BUILD_TYPE=Release -G 'Unix Makefiles' .
       - name: Build
