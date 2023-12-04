@@ -28,7 +28,7 @@ jobs:
       - name: Test
         run: tests\Release\test_hsluv.exe
 
-windows-64:
+  windows-64:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v4
