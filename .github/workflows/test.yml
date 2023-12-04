@@ -24,7 +24,7 @@ jobs:
       - name: Configure
         run: cmake -DCMAKE_BUILD_TYPE=Release -G "Visual Studio 17 2022" -A Win32 .
       - name: Build
-        run: msbuild.exe github-test.sln /p:Configuration=Release /p:Platform=Win32
+        run: msbuild.exe hsluv-c.sln /p:Configuration=Release /p:Platform=Win32
       - name: Test
         run: tests\Release\test_hsluv.exe
 
@@ -36,6 +36,6 @@ jobs:
       - name: Configure
         run: cmake -DCMAKE_BUILD_TYPE=Release -G "Visual Studio 17 2022" -A x64 .
       - name: Build
-        run: msbuild.exe github-test.sln /p:Configuration=Release /p:Platform=x64
+        run: msbuild.exe hsluv-c.sln /p:Configuration=Release /p:Platform=x64
       - name: Test
         run: tests\Release\test_hsluv.exe
