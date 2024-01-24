@@ -5,7 +5,7 @@
  *
  * Copyright (c) 2015 Alexei Boronine (original idea, JavaScript implementation)
  * Copyright (c) 2015 Roger Tallada (Obj-C implementation)
- * Copyright (c) 2017 Martin Mitas (C implementation, based on Obj-C implementation)
+ * Copyright (c) 2017 Martin Mitáš (C implementation, based on Obj-C implementation)
  *
  * Permission is hereby granted, free of charge, to any person obtaining a
  * copy of this software and associated documentation files (the "Software"),
